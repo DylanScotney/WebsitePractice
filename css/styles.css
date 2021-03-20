@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-container{
+    background-image: url(../img/th_web_hawk.jpg);
+    padding: 20% 20% 13% 20%;
+}
+
+.background-img{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.header-nav{
+    font-weight: 700;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    padding: 10px 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header-nav-logo{
+    background-size: contain;
+    height: 100%;
+    max-height: 50px;
+    padding-left: 16px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.header-nav ul {
+    margin-right: 16px;
+}
+
+.header-nav li{
+    display: inline-block;
+    cursor: pointer;
+    padding: 16px;
+    align-content: center;
+    transition: all 0.3s ease 0s;
+    border: none;
+    border-radius: 10px;
+}
+
+.header-nav li a{
+    color: white;
+    text-decoration: none;
+}
+
+.header-large-logo{
+    max-width: 100%;
+    display: block;
+    
+}
+
+.header-nav li:hover {
+    background-color: rgb(112, 128, 144, 0.5);
+}
+
+.main-contents{
+    margin-top: 40px;
+    font-weight: 400;
+}
