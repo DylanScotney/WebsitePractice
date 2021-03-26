@@ -1,0 +1,225 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Collapsing Nav</title>
+</head>
+<body>
+    <div class="page-container">
+        <nav class="nav__sidebar nav__expanded-sidebar">
+
+        <div class="nav__toplinks">
+            <a href='#' class="nav__link">
+                <div class="nav__icon-container">
+                    <div class="material-icons-outlined">
+                        home
+                    </div>
+                </div>
+                <span class="nav__label">Home</span>
+            </a>
+            <a href='#' class="nav__link">
+                <div class="nav__icon-container">
+                    <div class="material-icons-outlined">
+                        bug_report
+                    </div>
+                </div>
+                <span class="nav__label">
+                    Issues
+                </span>
+            </a>
+            <a href='#' class="nav__link">
+                <div class="nav__icon-container">
+                    <div class="material-icons-outlined">
+                        merge_type
+                    </div>
+                </div>
+                <span class="nav__label">
+                    Merge Requests
+                </span>
+            </a>
+            <a href='#' class="nav__link">
+                <div class="nav__icon-container">
+                    <div class="material-icons-outlined">
+                        analytics
+                    </div>
+                </div>
+                <span class="nav__label">
+                    Analytics
+                </span>
+            </a>
+            <a href='#' class="nav__link">
+                <div class="nav__icon-container">
+                    <div class="material-icons-outlined">
+                        menu_book
+                    </div>
+                </div>
+                <span class="nav__label">
+                    Wiki
+                </span>
+            </a>
+            <a href='#' class="nav__link">
+                <div class="nav__icon-container">
+                    <div class="material-icons-outlined">
+                        account_circle
+                    </div>
+                </div>
+                <span class="nav__label">
+                    Account
+                </span>
+            </a>
+        </div>
+        
+        <div class="nav__collapse-button nav__link">
+            <div class="nav__icon-container">
+                <div class="material-icons-outlined" id="nav-collapse-icon">
+                    chevron_left
+                </div>
+            </div>
+            <span class="nav__label">Collapse Sidebar</span>
+        </div>
+
+        </nav>
+
+        <div class="main-contents-container">
+
+            <h>This is my main contents block!</h>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+        </div>
+    </div>
+
+    <script>
+
+        // Toggle nav bar
+        {
+            const collapsedClass = "nav__collapsed-sidebar";
+            const expandedClass = "nav__expanded-sidebar";
+            const lsKey = "navCollapsed";
+
+            const nav = document.querySelector(".nav__sidebar");
+            const navArrow = document.getElementById("nav-collapse-icon");
+            const navCollapseButton = document.querySelector(".nav__collapse-button");
+
+            if(localStorage.getItem(lsKey) == "true"){
+                nav.classList.toggle(collapsedClass);
+                nav.classList.toggle(expandedClass);
+                navArrow.innerHTML = "chevron_left";
+            }
+
+            navCollapseButton.addEventListener("click", () => {
+                nav.classList.toggle(collapsedClass);
+                nav.classList.toggle(expandedClass);
+                localStorage.setItem(lsKey, nav.classList.contains(collapsedClass));
+                if(navArrow.innerHTML == "chevron_right"){
+                    navArrow.innerHTML = "chevron_left";
+                }
+                else{
+                    navArrow.innerHTML = "chevron_right";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
