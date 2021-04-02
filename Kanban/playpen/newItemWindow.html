@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="floating-window" id='kanban-new-item-window'>
+        <nav class="floating-window-nav">            
+            <div class="floating-window-title">
+                New Item:
+            </div>
+            
+            <div>
+                <span class="material-icons-outlined" id="tick-button">
+                    done
+                </span>
+                    
+                <span class="material-icons-outlined" id="close-button">
+                    close
+                </span>
+            </div>
+        </nav>
+        <div class="kanban-new-item-window-contents">
+            <div class="kanban-new-item-title-input">
+                <label for="item-name" class="kanban-new-item-input-title-container">
+                    Title:
+                </label>
+                <input type="text" name="item-name" class="default-text-input">
+
+            </div>               
+        </div>
+    </div>
+
+    <script>
+        // Make the DIV element draggable:
+        var draggables = document.querySelectorAll('.floating-window');
+        
+        draggables.forEach(draggable => {
+            dragElement(draggable);
+        });
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            elmnt.querySelector(".floating-window-nav").onmousedown = dragMouseDown;
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+    </script>
+
+</body>
+
+<style>
+
+    * {
+        font-family: sans-serif;
+    }
+    .floating-window {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        position: fixed;
+        top: 20%;
+        left: 20%;
+        background-color: lavender;
+        padding: 0px 20px 20px 20px;
+        border:  1px solid #bbbbbba2;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        animation: floating-window-open-animation 750ms cubic-bezier(.65,.13,.72,1.02) 0s 1 alternate;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes floating-window-open-animation {
+        0% {
+        width: 5%;
+        height: 10%;
+        background: #f8f8f8;
+        box-shadow:  10px 10px 10px #cccccc,
+                    10px 10px 10px #ffffff,
+                    0 0 0 #cccccc inset,
+                    0 0 0 #ffffff inset;
+        }
+        50% {
+        width: 5%;
+        height: 50%;
+        background: #f8f8f8;
+        box-shadow:  10px 10px 10px #cccccc,
+                    10px 10px 10px #ffffff,
+                    0 0 0 #cccccc inset,
+                    0 0 0 #ffffff inset;
+        }
+        100% {
+        width: 50%;
+        height: 50%;
+        background: #fafafa;
+        box-shadow:  40px 40px 40px #cccccc,
+                    0 0 0 #ffffff,
+                    0 0 0 #cccccc inset,
+                    2px 2px 2px #ffffff inset;
+        }
+    }
+
+    .floating-window-nav{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        height: 20px;
+        background-color: rgb(213, 213, 248);
+        border-bottom: 1px solid #bbbbbb6c;
+        padding: 5px 10px 2px 10px;
+        margin: 0 -20px 15px -20px;
+        border-top-right-radius: inherit;
+        border-top-left-radius: inherit;
+        cursor: move;
+    }
+
+    .floating-window-nav #tick-button {
+        cursor: pointer;
+        font-size: 20px;
+        color: mediumseagreen;
+    }
+
+    .floating-window-nav #close-button{
+        cursor: pointer;
+        font-size: 20px;
+        color: rgb(255, 123, 100);
+    }
+
+    .kanban-new-item-window-contents {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+    }
+
+    .kanban-new-item-title-input {
+        display: flex;
+        justify-content: stretch;
+    }
+
+</style>
+</html>
