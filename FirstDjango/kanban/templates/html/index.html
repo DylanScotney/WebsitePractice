@@ -1,0 +1,513 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Kanban</title>
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    
+</head>
+<body>
+    <div class="page-container">
+
+        {% include 'navbar.html' %}
+
+        <main class="main-contents-container">
+            <div class="kanban-container">
+                <div class="kanban-column">
+                    <div class="kanban-column-contents">
+                        
+                        <div class="kanban-column-title">
+                            To-do:
+                        </div>                                
+                        <div class=kanban-items-container>             
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my first item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my second item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my third item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my fourth item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my fifth item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my sixth item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my seventh item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is my eigth item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="kanban-add-item">
+                        <div class="material-icons-outlined">
+                            add
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kanban-column">
+                    <div class="kanban-column-contents">
+                        <div class="kanban-column-title">
+                            Doing:
+                        </div>                                
+                        <div class=kanban-items-container>             
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is a doing item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="kanban-add-item">
+                        <div class="material-icons-outlined">
+                            add
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="kanban-column">
+                    <div class="kanban-column-contents">
+                        <div class="kanban-column-title">
+                            Done:
+                        </div>                                
+                        <div class=kanban-items-container>             
+                            <div class="kanban-item kanban-item-collapsed draggable" draggable="true">
+                                <nav class="kanban-item-nav">
+                                    <div class="kanban-item-title">
+                                        This is a completed item
+                                    </div>
+                                    <div class="kanban-item-nav-btns">
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id='edit-button'>
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="kanban-item-button">
+                                            <span class="material-icons-outlined" id="collapse-button">
+                                                unfold_less
+                                            </span>
+                                        </div>
+                                    </div>
+                                </nav>
+                        
+                                <div class="kanban-item-contents">
+                                    <div>
+                                        <div class="kanban-item-desc">
+                                            <div class="editable">
+                                                My description
+                                            </div>
+                                        </div>
+                                        <div class="kanban-item-todo-container">
+                                            <ul>
+                                                <li class="kanban-item-todo"><input type="checkbox">First task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Second task</li>
+                                                <li class="kanban-item-todo"><input type="checkbox">Third task</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-item-labels">
+                                        <div class="default-label">
+                                            Urgent
+                                        </div>
+                                        <div class="default-label">
+                                            Bug
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="kanban-add-item">
+                        <div class="material-icons-outlined">
+                            add
+                        </div>
+                    </div>
+                </div>
+            <script type="module" src="{% static 'main.js'%}"></script>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
