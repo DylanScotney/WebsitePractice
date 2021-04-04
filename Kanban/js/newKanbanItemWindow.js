@@ -1,4 +1,7 @@
 import {envokeDraggableKanbanItems} from './draggableKanbanItems.js';
+import {buildNewKanbanItem} from './buildNewKanbanItem.js';
+import { expandCollapseKanbanItem } from './expandCollapseKandbanItems.js';
+import {activateEditBtnByElem} from './editKanbanItem.js';
 
 export function newKanbanItemWindow() {
     const addButtons = document.querySelectorAll('.kanban-add-item')
@@ -34,7 +37,14 @@ export function newKanbanItemWindow() {
                             Title:
                         </label>
                         <input type="text" name="item-name" id="kanban-new-item-input-title">
-                    </div>               
+                    </div>
+                    
+                    <div class="kanban-new-item-description-input">
+                        <label for="item-name" class="kanban-new-item-input-title-container">
+                            Description:
+                        </label>
+                        <textarea name="item-desc" id="kanban-new-item-input-desc"></textarea>
+                    </div>  
                 </div>
             `;
             
@@ -54,15 +64,18 @@ export function newKanbanItemWindow() {
                 var tickButton = newItemWindow.querySelector('.floating-window-nav #tick-button')
                 tickButton.addEventListener('click', e => {
                     var title = newItemWindow.querySelector('#kanban-new-item-input-title').value;
+                    var desc = newItemWindow.querySelector('#kanban-new-item-input-desc').value;
                     
                     if(title) {
                         var newItem = document.createElement('div');
-                        newItem.className = 'kanban-item draggable';
+                        newItem.className = 'kanban-item kanban-item-collapsed draggable';
                         newItem.draggable = 'true';
-                        newItem.innerHTML = title;
+                        newItem.innerHTML = buildNewKanbanItem(title, desc);
                         colItemsContainer.appendChild(newItem);
                         newItemWindow.remove();
-                        envokeDraggableKanbanItems();
+                        envokeDraggableKanbanItems(); // make new item draggable
+                        expandCollapseKanbanItem(newItem); // make new item expandable
+                        activateEditBtnByElem(newItem); // make new item editable 
                     }
                     else {
                         throw 'Invalid title';

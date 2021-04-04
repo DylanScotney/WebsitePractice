@@ -13,6 +13,7 @@
     --grey3: #e0e0e0;
     --grey4: #d3d3d3;
     --grey5: #c0c0c0;
+    --grey6: #6b6b6b;
     --black: #474747;
     --black1: #2e2e2e;
 
@@ -60,15 +61,33 @@
 }
 
 
-input {
+input, textarea {
     width: 100%;
     margin: 0px 8px; 
     border-width: 1px;
     border-radius: 5px;
     border-color: var(--grey1);
 }
-input:focus {
+
+input[type="checkbox"] {
+    max-width: 12px;
+    margin: 0px 8px;
+}
+
+input:focus, textarea:focus {
     outline:none!important;
+}
+
+textarea {
+    height: 300px;
+    overflow-y: auto;
+}
+
+*[contenteditable] {
+    border-radius: var(--default-border-radius);
+    padding: 5px;
+    box-shadow: rgb(207, 207, 207) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    transition: 750ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .page-container {
@@ -126,32 +145,6 @@ input:focus {
     padding: 0px 20px 20px 20px;
     border:  1px solid #bbbbbba2;
     border-radius: 10px;
-    box-shadow: rgba(87, 76, 31, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    resize:both;
-    animation: floating-window-open-animation 750ms cubic-bezier(.65,.13,.72,1.02) 0s 1 alternate;
-    animation-fill-mode: forwards;
-}
-
-@keyframes floating-window-open-animation {
-    0% {
-    width: 5%;
-    height: 10%;
-    background: #f8f8f8;
-    box-shadow:  10px 10px 10px #cccccc,
-                10px 10px 10px #ffffff,
-                0 0 0 #cccccc inset,
-                0 0 0 #ffffff inset;
-    }
-    50% {
-    width: 5%;
-    height: 50%;
-    background: #f8f8f8;
-    box-shadow:  10px 10px 10px #cccccc,
-                10px 10px 10px #ffffff,
-                0 0 0 #cccccc inset,
-                0 0 0 #ffffff inset;
-    }
-    100% {
     width: 50%;
     height: 50%;
     background: #fafafa;
@@ -159,7 +152,7 @@ input:focus {
                 0 0 0 #ffffff,
                 0 0 0 #cccccc inset,
                 2px 2px 2px #ffffff inset;
-    }
+    resize:both;
 }
 
 .floating-window-nav{
@@ -211,6 +204,13 @@ input:focus {
 .kanban-new-item-title-input {
     display: flex;
     justify-content: stretch;
+    padding-bottom: 15px;
+}
+
+.kanban-new-item-description-input {
+    display: flex;
+    flex-direction: column;
+    width: 95%
 }
 
 .kanban-container {
@@ -290,12 +290,9 @@ input:focus {
 
 .kanban-item-collapsed .kanban-item-desc,
 .kanban-item-collapsed .kanban-item-todo,
-.kanban-item-collapsed #collapse-button
+.kanban-item-collapsed #collapse-button,
+.kanban-item-collapsed #edit-button
 {
-    display: none;
-}
-
-.kanban-item-collapsed #close-button{
     display: none;
 }
 
@@ -353,10 +350,33 @@ input:focus {
     overflow: auto;
 }
 
+.kanban-item-desc {
+    color: var(--grey6);
+    padding-bottom: 15px;
+}
+
+.kanban-to-do-contianer{
+    display: flex; 
+    justify-content: flex-start;
+}
+
+.kanban-item-todo {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .kanban-item-nav {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 2%;
+    padding-bottom: 15px;
+}
+
+.kanban-item-title {
+    font-weight: 500;
 }
 
 .kanban-item-nav-btns {
