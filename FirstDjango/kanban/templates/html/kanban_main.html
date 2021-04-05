@@ -1,0 +1,49 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Kanban</title>
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    
+</head>
+<body>
+    <div class="page-container">
+
+        {% include 'navbar.html' %}
+
+        <main class="main-contents-container">
+            <div class="kanban-container">
+                {% for col in columns %}
+
+                <div class="kanban-column" data-id="{{ col.id }}">
+                    <div class="kanban-column-contents">
+                        
+                        <div class="kanban-column-title">
+                            {{col.title}}
+                        </div>                                
+                        <div class=kanban-items-container>   
+                            {% for item in col.items %}
+                            {{ item }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="kanban-add-item">
+                        <div class="material-icons-outlined">
+                            add
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+            <script type="module" src="{% static 'main.js'%}"></script>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

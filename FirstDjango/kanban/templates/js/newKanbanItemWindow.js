@@ -15,37 +15,39 @@ export function newKanbanItemWindow() {
             var newItemWindow = document.createElement('div');
             newItemWindow.className = 'floating-window'
             newItemWindow.id = 'kanban-new-item-window';
-
+        
             newItemWindow.innerHTML = `
-                <nav class="floating-window-nav">            
-                    <div class="floating-window-title">
-                        New Item:
+                <form>
+                    <nav class="floating-window-nav">            
+                        <div class="floating-window-title">
+                            New Item:
+                        </div>
+                        <div>
+                            <span class="material-icons-outlined" id="tick-button">
+                                done
+                            </span>
+                                
+                            <span class="material-icons-outlined" id="close-button">
+                                close
+                            </span>
+                        </div>
+                    </nav>
+                    <div class="kanban-new-item-window-contents">
+                        <div class="kanban-new-item-title-input">
+                            <label for="item-name" class="kanban-new-item-input-title-container">
+                                Title:
+                            </label>
+                            <input type="text" name="item-name" id="kanban-new-item-input-title">
+                        </div>
+                        
+                        <div class="kanban-new-item-description-input">
+                            <label for="item-name" class="kanban-new-item-input-title-container">
+                                Description:
+                            </label>
+                            <textarea name="item-desc" id="kanban-new-item-input-desc"></textarea>
+                        </div>  
                     </div>
-                    <div>
-                        <span class="material-icons-outlined" id="tick-button">
-                            done
-                        </span>
-                            
-                        <span class="material-icons-outlined" id="close-button">
-                            close
-                        </span>
-                    </div>
-                </nav>
-                <div class="kanban-new-item-window-contents">
-                    <div class="kanban-new-item-title-input">
-                        <label for="item-name" class="kanban-new-item-input-title-container">
-                            Title:
-                        </label>
-                        <input type="text" name="item-name" id="kanban-new-item-input-title">
-                    </div>
-                    
-                    <div class="kanban-new-item-description-input">
-                        <label for="item-name" class="kanban-new-item-input-title-container">
-                            Description:
-                        </label>
-                        <textarea name="item-desc" id="kanban-new-item-input-desc"></textarea>
-                    </div>  
-                </div>
+                </form>
             `;
             
             // Add elem only if one doesnt already exist

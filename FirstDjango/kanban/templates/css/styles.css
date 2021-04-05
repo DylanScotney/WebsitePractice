@@ -22,15 +22,16 @@
     --default-background-color: var(--white);
     --default-hover-color: var(--grey2);
 
-    /* --default-background-color: #1F2933;
-    --default-font-color: #CBD2D9; */
-
-    --default-column-padding: 10px;
-
     --default-border-width: 1px;
     /* --default-border-color: #3E4C59; */
     --default-border: var(--default-border-width) solid var(--default-border-color);
     --default-border-radius: 5px;
+
+    --kanban-column-width: 300px;
+    --kanban-column-min-width: 250px;
+    --kanban-column-margin-TB: 20px;
+    --kanban-column-margin-LR: 10px;
+    --kanban-column-padding: 10px;
 }
 
 
@@ -224,11 +225,11 @@ textarea {
 }
 
 .kanban-column{
-    min-width: 250px;
-    width: 300px;
-    margin: 20px 10px;
+    min-width: var(--kanban-column-min-width);
+    width: var(--kanban-column-width);
+    margin: var(--kanban-column-margin-TB) var(--kanban-column-margin-LR); 
     color: var(--default-font-color);
-    padding: var(--default-column-padding);
+    padding: var(--kanban-column-padding);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -264,7 +265,7 @@ textarea {
 .kanban-items-container{
     height: 100%;
     overflow-y: auto;
-    margin-bottom: var(--default-column-padding);
+    margin-bottom: var(--kanban-column-padding);
 }
 
 .kanban-item{
@@ -280,7 +281,7 @@ textarea {
 
 .kanban-item-collapsed{
     height: 100px;
-    min-width: calc(250px - var(--default-column-padding) * 2);
+    /* min-width: calc(var(--kanban-column-min-width)); - var(--kanban-column-padding) * 2 - var(--kanban-column-margin-LR) * 2); */
     cursor: pointer;
 }
 
@@ -419,7 +420,7 @@ textarea {
     justify-content: center;
     cursor: pointer;
     border-top: var(--default-border);
-    padding: var(--default-column-padding) 0px;
+    padding: var(--kanban-column-padding) 0px;
     margin: -10px;
     border-bottom-right-radius: var(--default-border-radius);
     border-bottom-left-radius: var(--default-border-radius);

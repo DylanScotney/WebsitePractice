@@ -1,0 +1,57 @@
+
+<div class="kanban-item kanban-item-collapsed draggable" draggable="true" data-id="{{ item.id }}">
+    <nav class="kanban-item-nav">
+        <div class="kanban-item-title">
+            {{ item.title }}
+        </div>
+        <div class="kanban-item-nav-btns">
+            <div class="kanban-item-button">
+                <span class="material-icons-outlined" id='edit-button'>
+                    edit
+                </span>
+            </div>
+            <div class="kanban-item-button">
+                <span class="material-icons-outlined" id="collapse-button">
+                    unfold_less
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="kanban-item-contents">
+        <div>
+
+            {% if item.description %}
+            <div class="kanban-item-desc">
+                <div class="editable">
+                    {{ item.description }}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if item.tasks %}
+            <div class="kanban-item-todo-container">
+                <ul>
+                    {% for subtask in item.tasks %}
+                    <li class="kanban-item-todo" data-id="{{ subtask.id }}"><input type="checkbox"> {{ subtask.title }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+        </div>
+        
+        {% if item.labels %}
+        <div class="kanban-item-labels">
+
+            {% for label in item.labels %}
+            <div class="default-label" style="background-color: {{ label.color }} ;" data-id="{{ label.id }}">
+                {{ label.title }}
+            </div>
+            {% endfor %}
+
+        </div>
+        {% endif %}
+
+    </div>
+</div>
