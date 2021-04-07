@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "../css/dropdown.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <title>Dropdown</title>
+</head>
+<body>
+
+    <div class="dropdown-container">
+        <input type="checkbox" name="dropdown-textbox" id="dropdown-checkbox"/>
+        <div class="dropdown-textbox">
+            <div class="dropdown-title">
+                <div class="material-icons-outlined">label</div>
+            </div>
+            <div class="dropdown-header-btns">
+                <label for="manage-labels-checkbox" id="dropdown-manage-label-btn">
+                    <div class="material-icons-outlined"></div>
+                </label>
+
+                <label for="dropdown-checkbox" class="material-icons-outlined" id="dropdown-expand-collapse">
+
+                </label>
+            </div>
+        </div>
+        
+        <div class="dropdown-choices-container">
+            <input type="checkbox" name="manage-labels-checkbox" id="manage-labels-checkbox"/>
+            <div class="create-new-label-container">
+                <form class="create-new-label-form" onsubmit="createNewLabel(); return false">
+                    <input id="create-new-label-name" type="text" placeholder="name" maxlength="20"/>
+                    <input id="create-new-label-color" type="text" placeholder="#cccccc00" maxlength="9"/>
+                    <input id="create-new-label-submit" type="submit" value="done" class="material-icons-outlined"/>
+                </form>
+            </div>
+
+            <ul class="dropdown-choices">
+                <div class="dropdown-item">
+                    <input class="dropdown-item-checkbox" type="checkbox" id="label-Urgent"/>
+                    <div class="default-label" style="background-color: #E25C3F;" id="dropdown-item-1">
+                        <label class="dropdown-choice-label" for="label-Urgent">Urgent</label>
+                    </div>
+                </div>
+
+                <div class="dropdown-item">
+                    <input class="dropdown-item-checkbox" type="checkbox" id="label-Bug";/>
+                    <div class="default-label" style="background-color: #0EA246;" id="dropdown-item-2">
+                        <label class="dropdown-choice-label" for="label-Bug">Bug</label>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        ( function enableDynamicDropdown() {
+            var dropdownItemCheckboxes = document.querySelectorAll('.dropdown-item-checkbox');
+            var dropdownTitle = document.querySelector('.dropdown-title');
+            var dropdownChoicesContainer = document.querySelector('.dropdown-choices');
+
+            dropdownItemCheckboxes.forEach(checkbox => enableLabelCheckbox(checkbox, dropdownTitle));
+
+        })();
+
+        function enableLabelCheckbox(checkbox, elemToAppend){
+            checkbox.addEventListener('change', e => {
+                    
+                    // clone the item so when we append we don't remove it from the list
+                    var checkedItem = checkbox.parentElement.querySelector('.default-label').cloneNode(true);
+
+                    if(checkbox.checked){
+                        elemToAppend.append(checkedItem);
+                        // add item to kanban item labels
+                    }
+                    else {
+                        var checkedItemID = checkedItem.getAttribute("id");
+                        elemToAppend.querySelector("#".concat(checkedItemID)).remove();
+                        // remove item from kanban item labels
+                    }                
+                });
+        }
+
+        function createNewLabel() {
+            const container = document.querySelector('.create-new-label-container');
+            const name = container.querySelector('#create-new-label-name').value;
+            const color = container.querySelector('#create-new-label-color').value;
+
+            var labelsContainer = document.querySelector('.dropdown-choices');
+            const currentLabelCount = labelsContainer.childElementCount;
+            if(name && color[0] == "#" && (color.length == 7 || color.length == 9)) {
+                // TO DO: label names cannot contain whitespace
+                var newLabel = document.createElement('div');
+                newLabel.className = 'dropdown-item';
+                newLabel.innerHTML = `
+                    <input class="dropdown-item-checkbox" type="checkbox" id="label-${name}";/>
+                    <div class="default-label" style="background-color: ${color};" id="dropdown-item-${currentLabelCount + 1}">
+                        <label class="dropdown-choice-label" for="label-${name}">${name}</label>
+                    </div>
+                `;
+
+                if(labelsContainer.querySelectorAll(`#label-${name}`).length == 0) {
+                    // TODO: add to db
+                    labelsContainer.appendChild(newLabel);
+                    var dropdownTitle = document.querySelector('.dropdown-title');
+                    var labelCheckbox = newLabel.querySelector('.dropdown-item-checkbox');
+                    enableLabelCheckbox(labelCheckbox, dropdownTitle);
+                }
+                else {
+                    // TODO: display error label with that name already exists
+                    newLabel.remove();
+                }
+            }
+            else {
+                // TODO: display error invalid input
+            }
+        }
+    </script>
+</body>
+</html>
